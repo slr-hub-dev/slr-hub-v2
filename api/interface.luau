@@ -19,7 +19,7 @@ type propertyTypes = string | Color3 | number | EnumItem | Font | UDim2 | UDim |
 type librarySpecific = { pages: Frame, pageBar: Frame, config: libraryArguments }
 type libraryPrivate = { [any]: librarySpecific }
 
-type pageSpecific = { library: library, page: CanvasGroup, main: ScrollingFrame?, left: ScrollingFrame?, right: ScrollingFrame? }
+type pageSpecific = { library: library, page: CanvasGroup, left: ScrollingFrame?, right: ScrollingFrame? }
 type pagePrivate = { [any]: pageSpecific }
 
 export type library = typeof(setmetatable({}, libraryApi))
@@ -78,7 +78,7 @@ function libraryMethods:Page(args: pageArguments): page
 	end
 	
 	local page = setmetatable({}, pageApi)
-	pagePrivate[page] = {library = self, page = pageR, main = main, left = left, right = right}
+	pagePrivate[page] = {library = self, main = main, left = left, right = right}
 	
 	return page
 end
