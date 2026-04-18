@@ -45,7 +45,7 @@ local function new(className: string, properties: {[string]: propertyTypes}): In
 end
 
 function pageMethods:Label(args: labelArguments): ()
-	
+	new("TextLabel", {Parent = args.right and pagePrivate[self].right or pagePrivate[self].left or pagePrivate[self].main, TextScaled = true, BorderSizePixel = 0, TextXAlignment = Enum.TextXAlignment.Left, BackgroundTransparency = 1, FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal), TextColor3 = Color3.new(1,1,1), Size = UDim2.new(1, 0, 0, 15)})
 end
 
 function libraryMethods:Page(args: pageArguments): page
