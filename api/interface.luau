@@ -44,6 +44,12 @@ local function new(className: string, properties: {[string]: propertyTypes}): In
 	return instance
 end
 
+function pageMethods:Button(args: buttonArguments): ()
+	local button = new("TextButton", {Parent = args.right and pagePrivate[self].right or pagePrivate[self].left or pagePrivate[self].main, BorderSizePixel = 0, AutoButtonColor = false, Text = "", BackgroundColor3 = Color3.new(1,1,1), BackgroundTransparency = 0.95, Size = UDim2.new(1, 0, 0, 30)})
+	local text = new("TextLabel", {Parent = button, BorderSizePixel = 0, TextScaled = true, BackgroundTransparency = 1, TextColor3 = Color3.new(1,1,1), AnchorPoint = Vector2.new(0.5,0.5), FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal), Size = UDim2.new(1, 0, 0, 15), Position = UDim2.new(0.5, 0, 0.5, 0), TextTransparency = 0.1})
+	new("UICorner", {Parent = button, CornerRadius = UDim.new(0, 4)})
+end
+
 function pageMethods:Label(args: labelArguments): ()
 	new("TextLabel", {Parent = args.right and pagePrivate[self].right or pagePrivate[self].left or pagePrivate[self].main, TextScaled = true, BorderSizePixel = 0, TextXAlignment = Enum.TextXAlignment.Left, BackgroundTransparency = 1, FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal), TextColor3 = Color3.new(1,1,1), Size = UDim2.new(1, 0, 0, 15)})
 end
@@ -56,7 +62,7 @@ function libraryMethods:Page(args: pageArguments): page
 	local pageSelectorCorner = new("UICorner", {Parent = pageSelector, CornerRadius = UDim.new(0, 4)})
 	local pageSelectorTitle = new("TextLabel", {TextScaled = true, Parent = pageSelector, BorderSizePixel = 0, TextXAlignment = Enum.TextXAlignment.Left, BackgroundTransparency = 1, FontFace = Font.new([[rbxasset://fonts/families/GothamSSm.json]], Enum.FontWeight.Medium, Enum.FontStyle.Normal), TextColor3 = Color3.new(1,1,1), AnchorPoint = Vector2.new(0.5, 0.5), Size = UDim2.new(0.9, 0, 0, 15), Position = UDim2.new(0.5, 0, 0.5, 0)})
 	local pageSelectorIndicator = new("Frame", {Parent = pageSelector, BorderSizePixel = 0, AnchorPoint = Vector2.new(0.5,0.5), Size = UDim2.new(0, 2, 1, 0), Position = UDim2.new(1, -1, 0.5, 0), BackgroundTransparency = 1}) :: Frame
-	
+
 	local right, left, main
 	
 	if args.sectioned then
