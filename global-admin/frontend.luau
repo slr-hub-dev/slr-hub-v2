@@ -5,6 +5,8 @@ local Players = cloneref(game:GetService("Players"))
 local HttpService = cloneref(game:GetService("HttpService"))
 local RunService = cloneref(game:GetService("RunService"))
 
+local cache = { eventIds = {}, commands = {}}
+
 local BACKEND = ""
 local COMMANDS = "https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/cmds/"
 local LAST_POLLED = 0
