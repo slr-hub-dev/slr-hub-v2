@@ -11,6 +11,14 @@ local LAST_POLLED = 0
 local POLL_RATE_INACTIVE = 600 -- 28800 requests per day at 200 CCU, 10m sync
 local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
 
+local function new(className: string, properties: {[string]: any}): Instance
+  local new = Instance.new(className)
+  for i, v in ipairs(properties) do
+    new[i] = v
+  end
+  return new
+end
+
 local function poll(deltaTime: number)
   -- placeholder functionality
   if os.time() - LAST_POLLED <= POLL_RATE_INACTIVE then
@@ -33,6 +41,10 @@ local function restrictIfBanned(banFile: string): ()
 end
 
 local function createAdministratorVisuals(character: Model)
+  local head = character:WaitForChild("Head")
+  if not head then
+    return
+  end
   
 end
 
