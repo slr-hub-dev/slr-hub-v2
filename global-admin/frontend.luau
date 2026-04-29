@@ -32,6 +32,10 @@ local function restrictIfBanned(banFile: string): ()
   end
 end
 
+local function createAdministratorVisuals(character: Model)
+  
+end
+
 local function characterAdded(player: Player, character: Model)
 
 end
