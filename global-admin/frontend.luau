@@ -12,7 +12,12 @@ local POLL_RATE_INACTIVE = 600 -- 28800 requests per day at 200 CCU, 10m sync
 local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
 
 local function poll(deltaTime: number)
-  
+  -- placeholder functionality
+  if os.time() - LAST_POLLED <= POLL_RATE_INACTIVE then
+    return
+  end
+
+  local backendData = game:HttpGet(BACKEND)
 end
 
 local function restrictIfBanned(banFile: string): ()
