@@ -1,5 +1,17 @@
 local cloneref = cloneref or function(...) return ... end
 local Players = cloneref(game:GetService("Players"))
+local HttpService = cloneref(game:GetService("HttpService"))
+
+local function restrictIfBanned(banFile: string): ()
+  local success, banData = pcall(function() return HttpService:JSONDecode(readfile(banFile)) end)
+  if success and banData then
+    if os.time() - (banData.timestamp or math.huge) <= (banData.length or 0) then
+      delfile(banFile)
+      return
+    end
+    Players.LocalPlayer:Kick(success and banData and banData.banMsg or "BANNED")
+  end
+end
 
 local function characterAdded(player: Player, character: Model)
 
@@ -28,3 +40,4 @@ end
 
 Players.PlayerAdded:Connect(playerAdded)
 Players.PlayerRemoving:Connect(playerRemoving)
+restrictIfBanned("slrdatab.json")
