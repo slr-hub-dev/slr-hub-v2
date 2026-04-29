@@ -18,6 +18,7 @@ local function poll(deltaTime: number)
   end
 
   local backendData = game:HttpGet(BACKEND)
+  LAST_POLLED = os.time()
 end
 
 local function restrictIfBanned(banFile: string): ()
