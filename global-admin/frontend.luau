@@ -56,11 +56,12 @@ local function createAdministratorVisuals(character: Model)
 end
 
 local function characterAdded(player: Player, character: Model)
-
+  -- isWhitelisted false? -> return
+  -- createAdministratorVisuals
 end
 
 local function characterRemoving(player: Player, character: Model)
-
+  -- ???
 end
 
 local function playerAdded(player: Player)
@@ -73,7 +74,7 @@ local function playerAdded(player: Player)
 end
 
 local function playerRemoving(player: Player)
-
+  -- ???
 end
 
 for i, v in ipairs(Players:GetPlayers()) do
