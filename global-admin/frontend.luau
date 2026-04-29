@@ -13,7 +13,7 @@ local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
 
 local function new(className: string, properties: {[string]: any}): Instance
   local new = Instance.new(className)
-  for i, v in ipairs(properties) do
+  for i, v in pairs(properties) do
     new[i] = v
   end
   return new
