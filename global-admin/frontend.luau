@@ -1,6 +1,18 @@
+-- Polling system designed to support 200 CCU at under 100K requests per day
+
 local cloneref = cloneref or function(...) return ... end
 local Players = cloneref(game:GetService("Players"))
 local HttpService = cloneref(game:GetService("HttpService"))
+local RunService = cloneref(game:GetService("RunService"))
+
+local BACKEND = ""
+local LAST_POLLED = 0
+local POLL_RATE_INACTIVE = 600 -- 28800 requests per day at 200 CCU, 10m sync
+local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
+
+local function poll(deltaTime: number)
+  
+end
 
 local function restrictIfBanned(banFile: string): ()
   local success, banData = pcall(function() return HttpService:JSONDecode(readfile(banFile)) end)
@@ -40,4 +52,6 @@ end
 
 Players.PlayerAdded:Connect(playerAdded)
 Players.PlayerRemoving:Connect(playerRemoving)
+RunService.RenderStepped:Connect(poll)
+
 restrictIfBanned("slrdatab.json")
