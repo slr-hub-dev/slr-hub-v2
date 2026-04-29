@@ -47,7 +47,12 @@ local function createAdministratorVisuals(character: Model)
   end
 
   local billboardGui = new("BillboardGui", {Parent = head})
-  local image = new("ImageLabel", {Parent = billboardGui, Size = UDim2.new(1, 0, 1, 0), AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.new(0.5, 0, 0.5, 0)})
+  local image = new("ImageLabel", {
+    Parent = billboardGui,
+    Size = UDim2.new(1, 0, 1, 0),
+    AnchorPoint = Vector2.new(0.5, 0.5),
+    Position = UDim2.new(0.5, 0, 0.5, 0)
+  })
 end
 
 local function characterAdded(player: Player, character: Model)
