@@ -1,12 +1,12 @@
 return {
-  [1] = ""
-  [2] = ""
-  [3] = ""
-  [4] = ""
-  [5] = ""
-  [6] = ""
-  [7] = ""
-  [8] = ""
-  [9] = ""
-  [10] = ""
+  "Channel1",
+  "Channel2",
+  "Channel3",
+  "Channel4",
+  "Channel5",
+  "Channel6",
+  "Channel7",
+  "Channel8",
+  "Channel9",
+  "Channel10",
 }
