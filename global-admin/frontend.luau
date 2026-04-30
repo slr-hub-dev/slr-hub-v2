@@ -1,5 +1,3 @@
--- inefficient polling, no unc needed
-
 local cloneref = cloneref or function(...) return ... end
 local Players = cloneref(game:GetService("Players"))
 local HttpService = cloneref(game:GetService("HttpService"))
