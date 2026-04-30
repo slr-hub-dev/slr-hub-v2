@@ -15,6 +15,23 @@ local POLL_RATE_INACTIVE = 60
 local POLL_RATE_ACTIVE = 15
 local LOAD_TIMESTAMP = os.time()
 
+local function httpGet(endpoint: string): string?, {any}?
+  local success, raw = pcall(function()
+    return game:HttpGet(BACKENDS[currentBackendChannel].."/"..endpoint)
+  end)
+
+  local success2, decompiled = pcall(function()
+    return HttpService:JSONDecode(raw)
+  end)
+
+  if not success1 or success2 then
+    httpGet(endpoint)
+    return
+  end
+
+  return raw, decompiled
+end
+
 local function new(className: string, properties: {[string]: any}): Instance
   local new = Instance.new(className)
   for i, v in pairs(properties) do
