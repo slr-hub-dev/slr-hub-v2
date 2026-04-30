@@ -1,4 +1,4 @@
--- Polling system designed to support 200 CCU at under 100K requests per day
+-- inefficient polling, no unc needed
 
 local cloneref = cloneref or function(...) return ... end
 local Players = cloneref(game:GetService("Players"))
@@ -6,12 +6,13 @@ local HttpService = cloneref(game:GetService("HttpService"))
 local RunService = cloneref(game:GetService("RunService"))
 
 local cache = { eventIds = {}, commands = {}}
+local currentBackendChannel = 1
 local lastPolled = 0
 
 local BACKENDS =  loadstring(game:HttpGet("https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/backends.luau"))()
 local COMMANDS = "https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/cmds/"
-local POLL_RATE_INACTIVE = 600 -- 28800 requests per day at 200 CCU, 10m sync
-local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
+local POLL_RATE_INACTIVE = 60
+local POLL_RATE_ACTIVE = 15
 local LOAD_TIMESTAMP = os.time()
 
 local function new(className: string, properties: {[string]: any}): Instance
