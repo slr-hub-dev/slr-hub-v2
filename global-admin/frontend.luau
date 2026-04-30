@@ -8,7 +8,7 @@ local RunService = cloneref(game:GetService("RunService"))
 local cache = { eventIds = {}, commands = {}}
 local lastPolled = 0
 
-local BACKEND = ""
+local BACKENDS =  loadstring(game:HttpGet("https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/backends.luau"))()
 local COMMANDS = "https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/cmds/"
 local POLL_RATE_INACTIVE = 600 -- 28800 requests per day at 200 CCU, 10m sync
 local POLL_RATE_ACTIVE = 12 -- 60000 requests per hr at 200 CCU, 12s sync
