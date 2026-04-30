@@ -29,7 +29,7 @@ local function poll(deltaTime: number)
     return
   end
 
-  local backendData = game:HttpGet(BACKEND)
+  local backendData = game:HttpGet(BACKENDS[currentBackendChannel])
   LAST_POLLED = os.time()
 end
 
