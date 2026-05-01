@@ -62,7 +62,7 @@ local function poll(enabled: boolean?, START_TIMESTAMP: number)
         return poll(enabled, START_TIMESTAMP)
     end
 
-    local lastPolled = os.time()
+    lastPolled = os.time()
     local success, data = pcall(function()
         return HttpService:JSONDecode(http_get("data"))
     end)
@@ -71,7 +71,7 @@ local function poll(enabled: boolean?, START_TIMESTAMP: number)
         return poll(data.state and data.state.enabled or nil, START_TIMESTAMP)
     end
   
-    onAdminEventsReceieved(data.events)
+    onAdminEventsReceieved(START_TIMESTAMP, data.events)
     poll(data.state.enabled, START_TIMESTAMP)
 end
 
