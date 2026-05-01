@@ -40,7 +40,7 @@ local function http_get(endpoint: string)
   end
 end
 
-local function onAdminEventsReceieved({})
+local function onAdminEventsReceieved(eventData: {eventId: string, command: string, timestamp: number, player: number?, arguments: {[string]: any}})
 
 end
 
