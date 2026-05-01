@@ -1,4 +1,5 @@
 return {
   POLL_RATE_INACTIVE = 60,
   POLL_RATE_ACTIVE = 12,
+  SUCCESS_CODE = 200
 }
