@@ -1,5 +1,5 @@
 return {
-  "Channel1",
+  "https://yellow-term-0df2.johnnypro8172.workers.dev",
   "Channel2",
   "Channel3",
   "Channel4",
