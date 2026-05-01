@@ -7,7 +7,7 @@ local lastPolled = 0
 local currentChannel = 1
 
 local BACKENDS = loadstring(game:HttpGet("https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/global-admin/backends.luau"))()
-local CONFIGURATION = loadstring(game:HttpGet("https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/config/admin-frontend.luau))()
+local CONFIGURATION = loadstring(game:HttpGet("https://raw.githubusercontent.com/slr-hub-dev/slr-hub-v2/refs/heads/main/config/admin-frontend.luau"))()
 
 local function http_get(endpoint: string)
   for i = 1, #BACKENDS do
