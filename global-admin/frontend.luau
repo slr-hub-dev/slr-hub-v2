@@ -1,3 +1,13 @@
+type eventData = {
+    {
+        eventId: string,
+        command: string,
+        timestamp: number,
+        player: number?,
+        arguments: {[string]: any}
+    }
+}
+
 local cloneref = cloneref or function(...) return ... end
 local http_request = request or http_request or http.request
 
@@ -40,7 +50,7 @@ local function http_get(endpoint: string)
   end
 end
 
-local function onAdminEventsReceieved(START_TIMESTAMP: number, eventData: {eventId: string, command: string, timestamp: number, player: number?, arguments: {[string]: any}})
+local function onAdminEventsReceieved(START_TIMESTAMP: number, eventData: eventData)
 
 end
 
