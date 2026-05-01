@@ -65,6 +65,4 @@ local function poll(enabled: boolean?, START_TIMESTAMP: number)
   poll(data.state.enabled, START_TIMESTAMP)
 end
 
-local START_TIMESTAMP = http_get("time")
-
-poll(nil, START_TIMESTAMP)
+poll(nil, http_get("time"))
