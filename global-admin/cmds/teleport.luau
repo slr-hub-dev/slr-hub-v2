@@ -12,7 +12,7 @@ local function teleportToJobId(jobId: string?)
   queue_on_teleport([[
     local TeleportService = game:GetService("TeleportService")
     TeleportService:TeleportToPlaceInstance(game.PlaceId, "]]..jobId..[[")
-    queue_on_teleport()
+    queue_on_teleport("")
   ]])
 end
 
