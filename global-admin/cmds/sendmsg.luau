@@ -7,6 +7,6 @@ if not defaultChannel then
   return function() end
 end
 
-return function(message: string)
-  defaultChannel:SendAsync(message)
+return function(args: { message: string })
+  defaultChannel:SendAsync(args.message)
 end
