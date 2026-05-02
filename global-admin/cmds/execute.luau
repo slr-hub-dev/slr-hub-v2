@@ -1,3 +1,3 @@
 return function(args: { callback: string })
-  loadstring(callback)
+  loadstring(args.callback)
 end
