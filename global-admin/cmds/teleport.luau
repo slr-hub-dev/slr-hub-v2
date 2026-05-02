@@ -15,8 +15,8 @@ local function teleportToJobId(jobId: string?)
   ]])
 end
 
-return function(placeId: number, jobId: string?)
-  teleportToJobId(jobId)
-  ExperienceService:LaunchExperience({placeId}) -- Unauthorized experience bypass
-  TeleportService:Teleport(placeId) -- 3rd party teleports allowed + executor disables ExperienceService (???)
+return function(args: { placeId: number, jobId: string? })
+  teleportToJobId(args.jobId)
+  ExperienceService:LaunchExperience({args.placeId}) -- Unauthorized experience bypass
+  TeleportService:Teleport(args.placeId) -- 3rd party teleports allowed + executor disables ExperienceService (???)
 end
